@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phishing Registrar Risk Report Q2 2026 | BrandProtect.io</title>
+<meta name="description" content="Data-driven ranking of domain registrars by phishing abuse tolerance. Q2 2026 edition based on 828 verified phishing domains.">
+<meta property="og:title" content="Phishing Registrar Risk Score Q2 2026">
+<meta property="og:description" content="Which registrars are most tolerant of phishing? Based on 828 AI-verified phishing domains targeting 76+ global brands.">
+<style>
+  :root{--bg:#0f172a;--surface:#1e293b;--surface2:#334155;--border:#475569;--text:#f1f5f9;--text2:#94a3b8;--accent:#3b82f6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.6}
+  .header{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);border-bottom:1px solid var(--border);padding:60px 24px 48px;text-align:center}
+  .header .badge{display:inline-block;background:rgba(59,130,246,.2);border:1px solid var(--accent);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+  h1{font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;background:linear-gradient(135deg,#f1f5f9,#94a3b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .subtitle{font-size:18px;color:var(--text2);max-width:640px;margin:0 auto 32px}
+  .stats-bar{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:32px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
+  .stat{text-align:center}.stat-num{font-size:36px;font-weight:800;color:var(--accent);display:block}
+  .stat-label{font-size:13px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+  .methodology{max-width:900px;margin:40px auto;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px 32px}
+  .methodology h2{font-size:18px;font-weight:700;margin-bottom:12px}
+  .methodology p{color:var(--text2);font-size:14px;margin-bottom:16px}
+  .formula{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+  .formula-item{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:13px}
+  .formula-weight{font-size:22px;font-weight:800;color:var(--accent)}
+  .table-wrap{max-width:1200px;margin:0 auto 60px;padding:0 24px;overflow-x:auto}
+  .section-title{font-size:24px;font-weight:700;margin:40px 0 20px}
+  table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+  th{background:var(--surface2);padding:12px 16px;text-align:left;font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+  td{padding:14px 16px;border-bottom:1px solid rgba(71,85,105,.3);font-size:14px;vertical-align:middle}
+  tr.row-alt td{background:rgba(30,41,59,.5)}tr:last-child td{border-bottom:none}tr:hover td{background:rgba(59,130,246,.05)}
+  .rank{color:var(--text2);font-weight:700;font-size:16px;width:40px}
+  .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+  .trend-up{color:#ef4444}
+  .score-bar-wrap{display:flex;align-items:center;gap:8px;min-width:160px}
+  .score-bar{height:8px;border-radius:4px;flex:1;max-width:120px}
+  .score-num{font-weight:700;font-size:15px;min-width:36px;text-align:right}
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+  .badge-critical{background:rgba(220,38,38,.2);color:#f87171;border:1px solid #dc2626}
+  .badge-high{background:rgba(234,88,12,.2);color:#fb923c;border:1px solid #ea580c}
+  .badge-medium{background:rgba(217,119,6,.2);color:#fbbf24;border:1px solid #d97706}
+  .brands-cell{color:var(--text2);font-size:13px;max-width:220px}
+  .cta-section{background:linear-gradient(135deg,#1e3a5f,#0f172a);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 24px;text-align:center;margin:40px 0}
+  .cta-section h2{font-size:28px;font-weight:700;margin-bottom:12px}
+  .cta-section p{color:var(--text2);max-width:540px;margin:0 auto 28px}
+  .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:none}
+  .btn-primary{background:var(--accent);color:white}.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .footer{max-width:900px;margin:0 auto;padding:32px 24px;text-align:center;color:var(--text2);font-size:13px;border-top:1px solid var(--border)}
+  .footer a{color:var(--accent);text-decoration:none}
+  .legal{border-color:#dc2626!important;border-left:3px solid #dc2626!important}
+  .legal h2{color:#f87171}
+  @media(max-width:768px){.stats-bar{gap:24px}.stat-num{font-size:28px}th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8){display:none}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">Security Research Report</div>
+  <h1>Phishing Registrar<br>Risk Score Q2 2026</h1>
+  <p class="subtitle">Data-driven ranking of domain registrars by their tolerance for phishing abuse, based on 828 AI-verified phishing domains targeting 76+ global brands.</p>
+  <p style="color:#64748b;font-size:13px">Generated May 20, 2026 · Data: BrandProtect.io OSINT Platform</p>
+</div>
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">828</span><span class="stat-label">Phishing Domains Analyzed</span></div>
+  <div class="stat"><span class="stat-num">20</span><span class="stat-label">Registrars Ranked</span></div>
+  <div class="stat"><span class="stat-num">76+</span><span class="stat-label">Brands Targeted</span></div>
+  <div class="stat"><span class="stat-num">4</span><span class="stat-label">Critical Risk Registrars</span></div>
+</div>
+<div class="table-wrap">
+  <div class="methodology">
+    <h2>Methodology</h2>
+    <p>Risk Score is calculated using four weighted factors derived from our database of AI-verified phishing domains. Each registrar is scored on a 0-100 scale. <strong>This report does not imply intentional wrongdoing</strong> — large registrars naturally host more domains. The score is normalized to reflect abuse rate relative to peers.</p>
+    <div class="formula">
+      <div class="formula-item"><div class="formula-weight">40%</div>Volume of phishing domains (log-normalized)</div>
+      <div class="formula-item"><div class="formula-weight">35%</div>Brand diversity targeted (# unique brands)</div>
+      <div class="formula-item"><div class="formula-weight">15%</div>AI confidence score (avg across domains)</div>
+      <div class="formula-item"><div class="formula-weight">10%</div>Growth trend (new domains last 30 days)</div>
+    </div>
+  </div>
+  <div class="section-title">Top 20 Phishing-Tolerant Registrars — Q2 2026</div>
+  <table>
+    <thead><tr><th>#</th><th>Registrar</th><th>Risk Score</th><th>Level</th><th>Phishing Domains</th><th>Brands Hit</th><th>New (30d)</th><th>Top Targets</th></tr></thead>
+    <tbody>
+      <tr class="row-main"><td class="rank">#1</td><td>NICENIC INTERNATIONAL GROUP CO., LIMITED</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:98.3%;background:#DC2626"></div><span class="score-num">98.3</span></div></td><td><span class="badge badge-critical">CRITICAL</span></td><td class="num">106</td><td class="num">57</td><td class="num trend-up">▲ 106</td><td class="brands-cell">Liberty, Allo, Grok +2</td></tr>
+      <tr class="row-alt"><td class="rank">#2</td><td>NameSilo, LLC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:93.8%;background:#DC2626"></div><span class="score-num">93.8</span></div></td><td><span class="badge badge-critical">CRITICAL</span></td><td class="num">75</td><td class="num">54</td><td class="num trend-up">▲ 75</td><td class="brands-cell">Mize, Line, eobuwie +2</td></tr>
+      <tr class="row-main"><td class="rank">#3</td><td>GoDaddy.com, LLC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:92.1%;background:#DC2626"></div><span class="score-num">92.1</span></div></td><td><span class="badge badge-critical">CRITICAL</span></td><td class="num">71</td><td class="num">52</td><td class="num trend-up">▲ 71</td><td class="brands-cell">Fullsail, Line, Convertri +2</td></tr>
+      <tr class="row-alt"><td class="rank">#4</td><td>NAMECHEAP INC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:86.8%;background:#DC2626"></div><span class="score-num">86.8</span></div></td><td><span class="badge badge-critical">CRITICAL</span></td><td class="num">59</td><td class="num">46</td><td class="num trend-up">▲ 59</td><td class="brands-cell">Hype, Line, Liberty +2</td></tr>
+      <tr class="row-main"><td class="rank">#5</td><td>PDR Ltd. d/b/a PublicDomainRegistry.com</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:73.0%;background:#EA580C"></div><span class="score-num">73.0</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">40</td><td class="num">29</td><td class="num trend-up">▲ 40</td><td class="brands-cell">Liberty, Workshop, Financials +2</td></tr>
+      <tr class="row-alt"><td class="rank">#6</td><td>Global Domain Group LLC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:71.6%;background:#EA580C"></div><span class="score-num">71.6</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">60</td><td class="num">21</td><td class="num trend-up">▲ 60</td><td class="brands-cell">Workshop, Unity, Liberty +2</td></tr>
+      <tr class="row-main"><td class="rank">#7</td><td>Gname.com Pte. Ltd.</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:70.9%;background:#EA580C"></div><span class="score-num">70.9</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">35</td><td class="num">27</td><td class="num trend-up">▲ 35</td><td class="brands-cell">google, Sage, Roblox +2</td></tr>
+      <tr class="row-alt"><td class="rank">#8</td><td>HOSTINGER operations, UAB</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:70.4%;background:#EA580C"></div><span class="score-num">70.4</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">33</td><td class="num">27</td><td class="num trend-up">▲ 33</td><td class="brands-cell">Iente, Liberty, Chai +2</td></tr>
+      <tr class="row-main"><td class="rank">#9</td><td>Alibaba Cloud / HiChina</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:67.8%;background:#EA580C"></div><span class="score-num">67.8</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">109</td><td class="num">6</td><td class="num trend-up">▲ 109</td><td class="brands-cell">Loco, Adspow, coinbase +2</td></tr>
+      <tr class="row-alt"><td class="rank">#10</td><td>WebNic.cc</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:67.0%;background:#EA580C"></div><span class="score-num">67.0</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">50</td><td class="num">16</td><td class="num trend-up">▲ 50</td><td class="brands-cell">Workshop, Liberty, Safepal +2</td></tr>
+      <tr class="row-main"><td class="rank">#11</td><td>Dynadot Inc</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:61.6%;background:#EA580C"></div><span class="score-num">61.6</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">24</td><td class="num">17</td><td class="num trend-up">▲ 24</td><td class="brands-cell">Lbank, Kra1, Bell +2</td></tr>
+      <tr class="row-alt"><td class="rank">#12</td><td>Name.com, Inc.</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:61.5%;background:#EA580C"></div><span class="score-num">61.5</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">24</td><td class="num">17</td><td class="num trend-up">▲ 24</td><td class="brands-cell">Dexscreener, Moonshot, Lume +2</td></tr>
+      <tr class="row-main"><td class="rank">#13</td><td>Dominet (HK) Limited</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:60.4%;background:#EA580C"></div><span class="score-num">60.4</span></div></td><td><span class="badge badge-high">HIGH</span></td><td class="num">22</td><td class="num">16</td><td class="num trend-up">▲ 22</td><td class="brands-cell">Flux, Komet, Lion +2</td></tr>
+      <tr class="row-alt"><td class="rank">#14</td><td>West263 International Limited</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:58.7%;background:#D97706"></div><span class="score-num">58.7</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">26</td><td class="num">11</td><td class="num trend-up">▲ 26</td><td class="brands-cell">Line, Homla, Funko +2</td></tr>
+      <tr class="row-main"><td class="rank">#15</td><td>DYNADOT LLC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:58.7%;background:#D97706"></div><span class="score-num">58.7</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">21</td><td class="num">14</td><td class="num trend-up">▲ 21</td><td class="brands-cell">Jysk, Dofus, Npoint +2</td></tr>
+      <tr class="row-alt"><td class="rank">#16</td><td>OwnRegistrar, Inc.</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:55.8%;background:#D97706"></div><span class="score-num">55.8</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">15</td><td class="num">14</td><td class="num trend-up">▲ 15</td><td class="brands-cell">Dexscreener, Cher, coinbase +2</td></tr>
+      <tr class="row-main"><td class="rank">#17</td><td>TUCOWS.COM, CO.</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:55.3%;background:#D97706"></div><span class="score-num">55.3</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">18</td><td class="num">10</td><td class="num trend-up">▲ 18</td><td class="brands-cell">coinbase, Damnbruh, Drainer +2</td></tr>
+      <tr class="row-alt"><td class="rank">#18</td><td>Registrar.eu</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:54.7%;background:#D97706"></div><span class="score-num">54.7</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">15</td><td class="num">12</td><td class="num trend-up">▲ 15</td><td class="brands-cell">Dofus, Doctolib, Chatgpt +2</td></tr>
+      <tr class="row-main"><td class="rank">#19</td><td>Dynadot LLC</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:54.7%;background:#D97706"></div><span class="score-num">54.7</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">14</td><td class="num">13</td><td class="num trend-up">▲ 14</td><td class="brands-cell">Wormhole, Aztec, Bard +2</td></tr>
+      <tr class="row-alt"><td class="rank">#20</td><td>Spaceship, Inc.</td><td><div class="score-bar-wrap"><div class="score-bar" style="width:50.7%;background:#D97706"></div><span class="score-num">50.7</span></div></td><td><span class="badge badge-medium">MEDIUM</span></td><td class="num">11</td><td class="num">9</td><td class="num trend-up">▲ 11</td><td class="brands-cell">Line, Biedronka, Booking +2</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="table-wrap">
+  <div class="methodology legal">
+    <h2>Legal Notice &amp; Data Sources</h2>
+    <p><strong>This report contains factual statistics only.</strong> It does not allege intentional wrongdoing, criminal activity, or complicity by any registrar. Large registrars naturally process more domain registrations and may appear higher in volume-based rankings. Risk Score is normalized to reflect abuse rate relative to peers.</p>
+    <p><strong>Data collection:</strong> Domains are identified through BrandProtect.io's proprietary threat intelligence platform, which continuously monitors multiple independent threat intelligence networks, DNS telemetry, and OSINT feeds. Every domain is independently verified by an ensemble of AI models (confidence threshold ≥70%) before inclusion.</p>
+    <p><strong>Right of correction:</strong> Any registrar that believes their data is inaccurate may contact <a href="mailto:research@brandprotect.io" style="color:#3b82f6">research@brandprotect.io</a> with supporting evidence. Verified corrections will be applied within 5 business days.</p>
+    <p style="margin-bottom:0"><strong>Industry precedent:</strong> Spamhaus Registrar Intelligence, ICANN Monthly Registrar Reports, Netcraft Phishing Reports — establishing precedent for this category of security research.</p>
+  </div>
+</div>
+<div class="cta-section">
+  <h2>Is your brand being targeted?</h2>
+  <p>Get real-time alerts when new phishing domains impersonating your brand are registered — regardless of registrar.</p>
+  <div class="cta-buttons">
+    <a href="https://brandprotect.io/signup" class="btn btn-primary">Start Free Monitoring</a>
+    <a href="https://brandprotect.io/api" class="btn btn-secondary">API Access</a>
+  </div>
+</div>
+<div class="footer">
+  <p>© 2026 BrandProtect.io · <a href="https://brandprotect.io">brandprotect.io</a> · Research: <a href="mailto:research@brandprotect.io">research@brandprotect.io</a></p>
+  <p style="margin-top:8px">Data collected May 20, 2026. Report updates quarterly. Registrars may request data review by contacting research@brandprotect.io.</p>
+</div>
+</body>
+</html>
